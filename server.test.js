@@ -2,7 +2,7 @@
 const request = require('supertest');
 
 // Specify the URL of your deployed backend on Render
-const backendURL = 'http://localhost:8081'; // Replace this with your actual Render backend URL
+const backendURL = 'https://backend-ns21.onrender.com'; // Replace this with your actual Render backend URL
 
 // Login test
 describe('POST /login', () => {
