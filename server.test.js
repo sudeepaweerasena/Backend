@@ -2,15 +2,14 @@
 const request = require('supertest');
 
 // Specify the URL of your deployed backend on Render
-//const backendURL = 'https://backend-ns21.onrender.com'; // Replace this with your actual Render backend URL
-const backendURL = 'http://localhost:8081'; // Replace this with your actual Render backend URL
-
+//const backendURL = 'http://localhost:8081'; // Replace this with your actual Render backend URL
+const backendURL = 'https://backend-ns21.onrender.com'; // Replace this with your actual Render backend URL
 // Login test
 describe('POST /login', () => {
   it('should login a user with correct credentials', async () => {
     const res = await request(backendURL)
       .post('/login')
-      .send({ Username: 'dinalfernando43@gmail.com', Password: 'Dinalfernando' });
+      .send({ Username: 'sudeepaweerasena@gmail.com', Password: '2002' });
 
     expect(res.statusCode).toEqual(200);
     expect(res.body).toHaveProperty('token'); // Assuming the response contains a token
@@ -19,7 +18,7 @@ describe('POST /login', () => {
   it('should reject a login with incorrect credentials', async () => {
     const res = await request(backendURL)
       .post('/login')
-      .send({ Username: 'dinalfernando43@gmail.com', Password: 'Dinalfernando2005' });
+      .send({ Username: 'sudeepaweerasena@gmail.com', Password: '2001' });
 
     expect(res.statusCode).toEqual(401); // or the appropriate status code for failed login
   }, 70000); // Set timeout to 30 seconds (30000 milliseconds)
@@ -30,7 +29,7 @@ describe('POST /reportIssue', () => {
   it('should successfully report an issue', async () => {
     const res = await request(backendURL)
       .post('/reportIssue')
-      .send({ name: 'Dinal Fernando', email: 'dinalfernando43@gmail.com', issue: 'Test Issue' });
+      .send({ name: 'Sudeepa Weerasena', email: 'sudeepaweerasena@gmail.com', issue: 'Test Issue' });
 
     expect(res.statusCode).toEqual(200); // Assuming 200 is success status
   }, 70000);
@@ -41,7 +40,7 @@ describe('POST /sendMessage', () => {
   it('should successfully send a message', async () => {
     const res = await request(backendURL)
       .post('/sendMessage')
-      .send({ to: 'dinalfernando43@gmail.com', from: 'dinalfernando43@gmail.com', message: 'Test message' });
+      .send({ to: 'sudeepaweerasena@gmail.com', from: 'sudeepaweerasena@gmail.com', message: 'Test message' });
 
     expect(res.statusCode).toEqual(200); // Assuming 200 is success status
   }, 70000);
@@ -54,7 +53,7 @@ describe('POST /submitLeave', () => {
   beforeAll(async () => {
     const loginResponse = await request(backendURL)
       .post('/login')
-      .send({ Username: 'dinalfernando43@gmail.com', Password: 'Dinalfernando' });
+      .send({ Username: 'sudeepaweerasena@gmail.com', Password: '2002' });
     
     token = loginResponse.body.token; // Store the token for later use
   }, 70000);
@@ -77,7 +76,7 @@ describe('POST /employees', () => {
   beforeAll(async () => {
     const loginResponse = await request(backendURL)
       .post('/login')
-      .send({ Username: 'dinalfernando43@gmail.com', Password: 'Dinalfernando' });
+      .send({ Username: 'sudeepaweerasena@gmail.com', Password: '2002' });
     
     token = loginResponse.body.token; // Store the token for later use
   }, 70000);
@@ -99,7 +98,7 @@ describe('POST /material_req', () => {
   beforeAll(async () => {
     const loginResponse = await request(backendURL)
       .post('/login')
-      .send({ Username: 'dinalfernando43@gmail.com', Password: 'Dinalfernando' });
+      .send({ Username: 'sudeepaweerasena@gmail.com', Password: '2002' });
     
     token = loginResponse.body.token; // Store the token for later use
   }, 70000);
@@ -122,7 +121,7 @@ describe('POST /Employee', () => {
   beforeAll(async () => {
     const loginResponse = await request(backendURL)
       .post('/login')
-      .send({ Username: 'dinalfernando43@gmail.com', Password: 'Dinalfernando' });
+      .send({ Username: 'sudeepaweerasena@gmail.com', Password: '2002' });
     
     token = loginResponse.body.token; // Store the token for later use
   }, 70000);
@@ -156,7 +155,7 @@ describe('POST /alert-history', () => {
   beforeAll(async () => {
     const loginResponse = await request(backendURL)
       .post('/login')
-      .send({ Username: 'dinalfernando43@gmail.com', Password: 'Dinalfernando' });
+      .send({ Username: 'sudeepaweerasena@gmail.com', Password: '2002' });
     
     token = loginResponse.body.token; // Store the token for later use
   }, 70000);
@@ -178,7 +177,7 @@ describe('POST /workers-on-leave', () => {
   beforeAll(async () => {
     const loginResponse = await request(backendURL)
       .post('/login')
-      .send({ Username: 'dinalfernando43@gmail.com', Password: 'Dinalfernando' });
+      .send({ Username: 'sudeepaweerasena@gmail.com', Password: '2002' });
     
     token = loginResponse.body.token; // Store the token for later use
   }, 70000);
@@ -200,7 +199,7 @@ describe('POST /addEmployee', () => {
   beforeAll(async () => {
     const loginResponse = await request(backendURL)
       .post('/login')
-      .send({ Username: 'dinalfernando43@gmail.com', Password: 'Dinalfernando' });
+      .send({ Username: 'sudeepaweerasena@gmail.com', Password: '2002' });
     
     token = loginResponse.body.token; // Store the token for later use
   }, 70000);
@@ -232,7 +231,7 @@ describe('POST /generate-report', () => {
   beforeAll(async () => {
     const loginResponse = await request(backendURL)
       .post('/login')
-      .send({ Username: 'dinalfernando43@gmail.com', Password: 'Dinalfernando' });
+      .send({ Username: 'sudeepaweerasena@gmail.com', Password: '2002' });
     
     token = loginResponse.body.token; // Store the token for later use
   }, 70000);
@@ -255,7 +254,7 @@ describe('POST /calculateSalary', () => {
   beforeAll(async () => {
     const loginResponse = await request(backendURL)
       .post('/login')
-      .send({ Username: 'dinalfernando43@gmail.com', Password: 'Dinalfernando' });
+      .send({ Username: 'sudeepaweerasena@gmail.com', Password: '2002' });
     
     token = loginResponse.body.token; // Store the token for later use
   }, 70000);
@@ -283,7 +282,7 @@ describe('POST /calculateSalary', () => {
 //   beforeAll(async () => {
 //     const loginResponse = await request(backendURL)
 //       .post('/login')
-//       .send({ Username: 'dinalfernando43@gmail.com', Password: 'Dinalfernando2005' });
+//       .send({ Username: 'sudeepaweerasena@gmail.com', Password: '2002' });
     
 //     token = loginResponse.body.token; // Store the token for later use
 //   }, 70000);
@@ -293,7 +292,7 @@ describe('POST /calculateSalary', () => {
 //     const res = await request(backendURL)
 //       .post('/changePassword')
 //       .set('Authorization', `Bearer ${token}`) // Set the authorization header with the token
-//       .send({ oldPassword: 'Dinalfernando2005', newPassword: 'Dinalfernando' });
+//       .send({ oldPassword: '2002', newPassword: '2003' });
 
 //     expect(res.statusCode).toEqual(200); // Assuming 200 is success status
 //     // Further assertions based on your API response
