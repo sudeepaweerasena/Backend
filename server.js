@@ -33,11 +33,19 @@ const storage = multer.diskStorage({
 const upload = multer({ storage: storage }).single('image');  
 
 // Create a MySQL database connection
+// const db = mysql.createConnection({
+//     host: "localhost",
+//     user: "root",
+//     password: "",
+//     database: "safex"
+// });
+
+// Create a MySQL database connection
 const db = mysql.createConnection({
-    host: "localhost",
-    user: "root",
-    password: "",
-    database: "safex"
+    host: "node236.r-usdatacenter.register.lk",
+    user: "machmavc_root",
+    password: "Safex@2024",
+    database: "machmavc_SafeX"
 });
 
 // Progression calculation
