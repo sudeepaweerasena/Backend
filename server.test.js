@@ -9,7 +9,7 @@ describe('POST /login', () => {
   it('should login a user with correct credentials', async () => {
     const res = await request(backendURL)
       .post('/login')
-      .send({ Username: 'sudeepaweerasena@gmail.com', Password: '2001' });
+      .send({ Username: 'sudeepaweerasena@gmail.com', Password: '2002' });
 
     expect(res.statusCode).toEqual(200);
     expect(res.body).toHaveProperty('token'); // Assuming the response contains a token
@@ -18,7 +18,7 @@ describe('POST /login', () => {
   it('should reject a login with incorrect credentials', async () => {
     const res = await request(backendURL)
       .post('/login')
-      .send({ Username: 'sudeepaweerasena@gmail.com', Password: '2002' });
+      .send({ Username: 'sudeepaweerasena@gmail.com', Password: '2001' });
 
     expect(res.statusCode).toEqual(401); // or the appropriate status code for failed login
   }, 70000); // Set timeout to 30 seconds (30000 milliseconds)
